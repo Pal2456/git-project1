@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg">
+                    <div class="card-header text-center">
+                        <h3>Your Wishlist</h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- Wishlist Item 1 -->
+                        <div class="wishlist-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="pic/book1.jpg" alt="Book 1" class="card-img-top">
+                                </div>
+                                <div class="col-md-8">
+                                    <h5 class="card-title">The Great Book</h5>
+                                    <p class="card-text">An amazing story of adventure and mystery.</p>
+                                    <p class="price">฿298</p>
+                                    <button class="btn btn-danger" onclick="removeFromWishlist('The Great Book')">Remove from Wishlist</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Wishlist Item 2 -->
+                        <div class="wishlist-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="pic/book2.jpg" alt="Book 2" class="card-img-top">
+                                </div>
+                                <div class="col-md-8">
+                                    <h5 class="card-title">Learning JavaScript</h5>
+                                    <p class="card-text">A comprehensive guide to modern JavaScript.</p>
+                                    <p class="price">฿300</p>
+                                    <button class="btn btn-danger" onclick="removeFromWishlist('Learning JavaScript')">Remove from Wishlist</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Wishlist Item 3 -->
+                        <div class="wishlist-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="pic/book3.jpg" alt="Book 3" class="card-img-top">
+                                </div>
+                                <div class="col-md-8">
+                                    <h5 class="card-title">The Art of Cooking</h5>
+                                    <p class="card-text">Delicious recipes for every occasion.</p>
+                                    <p class="price">฿245</p>
+                                    <button class="btn btn-danger" onclick="removeFromWishlist('The Art of Cooking')">Remove from Wishlist</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="account.html" class="btn btn-secondary w-100">Back to Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function removeFromWishlist(bookTitle) {
+            alert(bookTitle + " has been removed from your wishlist.");
+            // You can implement further logic to remove the item from the wishlist array/database
+        }
+    </script>
+</body>
+
+</html>

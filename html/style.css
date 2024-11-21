@@ -98,6 +98,7 @@ body {
   /* Ensures the image looks nice */
 }
 
+<<<<<<< HEAD
 /* Utility Classes (Optional for Extra Customization) */
 .text-light {
   color: #ffffff !important;
@@ -117,4 +118,39 @@ body {
 .shadow {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
   /* Reusable shadow */
+=======
+.card-header {
+  background-color: #007bff;
+  color: white;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.wishlist-item {
+  margin-bottom: 1rem;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.card-header {
+  background-color: #007bff;
+  color: white;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: auto;
+}
+
+.password-error {
+  color: red;
+  display: none;
+>>>>>>> c0413b3aae543842b73d8e7c4deec0d5754d07c7
 }
