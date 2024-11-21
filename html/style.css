@@ -1,47 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@WEIGHT_OR_RANGE&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
+/* Global Styles */
 body {
   font-family: 'Poppins', sans-serif;
   background: #ececec;
+  /* Light gray background */
+  margin: 0;
+  padding: 0;
 }
 
-
-/* Add spacing between header and main content */
-main {
-  margin-top: 20px;
-  /* Adjust as needed */
-  margin-bottom: 20px;
-  /* Adds spacing before the footer */
+/* Header */
+.site-header {
+  position: relative;
+  z-index: 1000;
+  /* Ensures the header is above other content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Optional: Adds a shadow */
 }
 
-/* Style the footer */
-footer {
+/* Navbar Brand */
+.navbar-brand {
+  font-family: 'Lobster', cursive;
+  /* Lobster font for the logo */
+  font-size: 1.8rem;
+  /* Adjust size as needed */
+}
+
+/* Main Content */
+.site-main {
+  margin-top: 500px;
+  /* Adds spacing below the header */
+  margin-bottom: 50px;
+  /* Adds spacing above the footer */
+}
+
+/* Footer */
+.site-footer {
   background-color: #6f42c1;
   /* SIIT purple */
   color: #ffffff;
   /* White text */
-  padding: 15px 0;
-  /* Padding inside the footer */
+  padding: 20px 0;
+  /* Adds space inside the footer */
   margin-top: 20px;
   /* Space above the footer */
-  text-align: left;
-  /* Align text to the left */
+  text-align: center;
+  /* Centers footer text */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  /* Optional: Adds a shadow */
 }
 
-/* Ensure the footer spans the full width */
-footer .container {
+/* Footer Container */
+.site-footer .container {
   max-width: 100%;
-  /* Make sure it doesn't get restricted by default container width */
+  /* Ensure the footer spans the full width */
 }
 
-/* Profile picture adjustments (if necessary) */
+/* Profile Picture */
 .profile-pic img {
   border: 2px solid #ffffff;
   /* Add a white border around the image */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  /* Optional: Add a subtle shadow */
+  /* Optional: Adds a subtle shadow */
 }
 
+/* Featured Image */
 .featured-image img {
   max-width: 100%;
   /* Ensures the image does not overflow its container */
@@ -53,15 +77,44 @@ footer .container {
   /* Optional: Adds a subtle shadow */
 }
 
+/* Box Area (e.g., Login Page Container) */
 .box-area {
   max-width: 1100px;
-  /* Limit the width of the login container */
+  /* Limit the width of the container */
   width: 100%;
+  background: #fff;
+  /* White background */
+  border-radius: 8px;
+  /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
 }
 
+/* Left Box (e.g., Image Section) */
 .left-box img {
   max-height: 400px;
   /* Restrict image height */
   object-fit: cover;
   /* Ensures the image looks nice */
+}
+
+/* Utility Classes (Optional for Extra Customization) */
+.text-light {
+  color: #ffffff !important;
+  /* Force white text */
+}
+
+.bg-purple {
+  background-color: #6f42c1 !important;
+  /* Define a reusable purple background class */
+}
+
+.rounded {
+  border-radius: 8px !important;
+  /* Reusable rounded corners */
+}
+
+.shadow {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+  /* Reusable shadow */
 }
