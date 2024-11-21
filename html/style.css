@@ -100,3 +100,18 @@ footer .container {
   color: red;
   display: none;
 }
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+.profile-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.profile-container h3 {
+  margin-top: 10px;
+}
