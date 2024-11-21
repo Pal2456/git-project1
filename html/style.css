@@ -1,8 +1,35 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* Add spacing between header and main content */
+main {
+  margin-top: 20px;
+  /* Adjust as needed */
+  margin-bottom: 20px;
+  /* Adds spacing before the footer */
 }
 
-a {
-  color: blue;
+/* Style the footer */
+footer {
+  background-color: #6f42c1;
+  /* SIIT purple */
+  color: #ffffff;
+  /* White text */
+  padding: 15px 0;
+  /* Padding inside the footer */
+  margin-top: 20px;
+  /* Space above the footer */
+  text-align: left;
+  /* Align text to the left */
+}
+
+/* Ensure the footer spans the full width */
+footer .container {
+  max-width: 100%;
+  /* Make sure it doesn't get restricted by default container width */
+}
+
+/* Profile picture adjustments (if necessary) */
+.profile-pic img {
+  border: 2px solid #ffffff;
+  /* Add a white border around the image */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  /* Optional: Add a subtle shadow */
 }
