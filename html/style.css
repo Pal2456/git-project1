@@ -29,7 +29,7 @@ body {
 
 /* Main Content */
 .site-main {
-  margin-top: 500px;
+  margin-top: 100px;
   /* Adds spacing below the header */
   margin-bottom: 50px;
   /* Adds spacing above the footer */
@@ -98,7 +98,49 @@ body {
   /* Ensures the image looks nice */
 }
 
-<<<<<<< HEAD
+/* Cards */
+.card-header {
+  background-color: #007bff;
+  /* Blue background */
+  color: white;
+  /* White text */
+}
+
+.card-img-top {
+  height: 200px;
+  /* Fixed height for images */
+  object-fit: cover;
+  /* Ensures the image doesn't stretch */
+}
+
+.wishlist-item {
+  margin-bottom: 1rem;
+  /* Spacing between items */
+}
+
+.price {
+  font-size: 1.2rem;
+  /* Larger font size for prices */
+  font-weight: bold;
+  color: #28a745;
+  /* Green color for price */
+}
+
+/* Form */
+.form-container {
+  max-width: 500px;
+  /* Restrict form width */
+  margin: auto;
+  /* Center the form */
+}
+
+.password-error {
+  color: red;
+  /* Error text color */
+  display: none;
+  /* Hidden by default */
+}
+
 /* Utility Classes (Optional for Extra Customization) */
 .text-light {
   color: #ffffff !important;
@@ -118,39 +160,4 @@ body {
 .shadow {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
   /* Reusable shadow */
-=======
-.card-header {
-  background-color: #007bff;
-  color: white;
-}
-
-.card-img-top {
-  height: 200px;
-  object-fit: cover;
-}
-
-.wishlist-item {
-  margin-bottom: 1rem;
-}
-
-.price {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #28a745;
-}
-
-.card-header {
-  background-color: #007bff;
-  color: white;
-}
-
-.form-container {
-  max-width: 500px;
-  margin: auto;
-}
-
-.password-error {
-  color: red;
-  display: none;
->>>>>>> c0413b3aae543842b73d8e7c4deec0d5754d07c7
 }
