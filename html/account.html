@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Page</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style></style>
 </head>
+
 <body>
+
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card shadow-lg">
-                    <div class="card-header text-center bg-primary text-white">
+                    <div class="card-header text-center">
                         <h3>Account Details</h3>
                     </div>
                     <div class="card-body">
@@ -32,24 +35,18 @@
                                 <input type="email" class="form-control" id="email" value="john.doe@example.com" readonly>
                             </div>
                             <hr>
-                            <h5>Change Password</h5>
+                            <h5>Account Settings</h5>
+                            <!-- Change Password Button -->
                             <div class="mb-3">
-                                <label for="currentPassword" class="form-label">Current Password</label>
-                                <input type="password" class="form-control" id="currentPassword" placeholder="Enter your current password" required>
+                                <button type="button" class="btn btn-warning w-100" onclick="window.location.href='change-password.html';">
+                                    Change Password
+                                </button>
                             </div>
+                            <!-- Wishlist Button -->
                             <div class="mb-3">
-                                <label for="newPassword" class="form-label">New Password</label>
-                                <input type="password" class="form-control" id="newPassword" placeholder="Enter your new password" minlength="8" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="confirmNewPassword" class="form-label">Confirm New Password</label>
-                                <input type="password" class="form-control" id="confirmNewPassword" placeholder="Confirm your new password" minlength="8" required>
-                                <div id="passwordError" class="text-danger mt-2" style="display: none;">
-                                    Passwords do not match.
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary">Update Password</button>
+                                <button type="button" class="btn btn-success w-100" onclick="window.location.href='wishlist.html';">
+                                    View Wishlist
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -61,31 +58,8 @@
         </div>
     </div>
 
-    <!-- JavaScript for Password Validation -->
-    <script>
-        const newPassword = document.getElementById('newPassword');
-        const confirmNewPassword = document.getElementById('confirmNewPassword');
-        const passwordError = document.getElementById('passwordError');
-
-        // Validate matching passwords
-        confirmNewPassword.addEventListener('input', function() {
-            if (newPassword.value !== confirmNewPassword.value) {
-                passwordError.style.display = 'block';
-            } else {
-                passwordError.style.display = 'none';
-            }
-        });
-
-        // Prevent form submission if passwords don't match
-        document.querySelector('form').addEventListener('submit', function(event) {
-            if (newPassword.value !== confirmNewPassword.value) {
-                event.preventDefault();
-                passwordError.style.display = 'block';
-            }
-        });
-    </script>
-
-    <!-- Bootstrap JS (Optional) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>
