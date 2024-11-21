@@ -138,7 +138,6 @@ body {
   color: red;
   /* Error text color */
   display: none;
-<<<<<<< HEAD
 }
 
 .profile-img {
@@ -154,28 +153,4 @@ body {
 }
 .profile-container h3 {
   margin-top: 10px;
-=======
-  /* Hidden by default */
-}
-
-/* Utility Classes (Optional for Extra Customization) */
-.text-light {
-  color: #ffffff !important;
-  /* Force white text */
-}
-
-.bg-purple {
-  background-color: #6f42c1 !important;
-  /* Define a reusable purple background class */
-}
-
-.rounded {
-  border-radius: 8px !important;
-  /* Reusable rounded corners */
-}
-
-.shadow {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
-  /* Reusable shadow */
->>>>>>> 7085766d900a96cd77efad27234e8e883a1766e0
 }
