@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@WEIGHT_OR_RANGE&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #ececec;
+}
+
+
 /* Add spacing between header and main content */
 main {
   margin-top: 20px;
@@ -32,4 +40,28 @@ footer .container {
   /* Add a white border around the image */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   /* Optional: Add a subtle shadow */
+}
+
+.featured-image img {
+  max-width: 100%;
+  /* Ensures the image does not overflow its container */
+  height: auto;
+  /* Maintains aspect ratio */
+  border-radius: 8px;
+  /* Optional: Rounds the corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Optional: Adds a subtle shadow */
+}
+
+.box-area {
+  max-width: 950px;
+  /* Limit the width of the login container */
+  width: 100%;
+}
+
+.left-box img {
+  max-height: 350px;
+  /* Restrict image height */
+  object-fit: cover;
+  /* Ensures the image looks nice */
 }
