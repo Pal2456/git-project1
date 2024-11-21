@@ -54,13 +54,13 @@ footer .container {
 }
 
 .box-area {
-  max-width: 950px;
+  max-width: 1100px;
   /* Limit the width of the login container */
   width: 100%;
 }
 
 .left-box img {
-  max-height: 350px;
+  max-height: 400px;
   /* Restrict image height */
   object-fit: cover;
   /* Ensures the image looks nice */
