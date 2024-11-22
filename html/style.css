@@ -157,27 +157,3 @@ body {
   margin-top: 10px;
 }
 
-<<<<<<< HEAD
-.book-square {
-  width: 1000px; /* Adjust size as needed */
-  height: 500px; /* Makes it a square */
-  background-color: #f0f0f0; /* Light gray background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px; /* Optional: rounded corners */
-  position: relative; /* For absolute positioning inside */
-}
-
-.book-image {
-  max-width: 80%; /* Adjust size to fit within the square */
-  max-height: 80%;
-  object-fit: contain;
-=======
-main .container {
-  max-width: 1200px;
-  /* Restrict the maximum width of the box */
-  margin: 0 auto;
-  /* Center the container */
->>>>>>> 63c9ca8f6466068c0eea6ed7533dadd0e40140ac
-}
