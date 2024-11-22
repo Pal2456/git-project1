@@ -154,3 +154,20 @@ body {
 .profile-container h3 {
   margin-top: 10px;
 }
+
+.book-square {
+  width: 1000px; /* Adjust size as needed */
+  height: 500px; /* Makes it a square */
+  background-color: #f0f0f0; /* Light gray background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px; /* Optional: rounded corners */
+  position: relative; /* For absolute positioning inside */
+}
+
+.book-image {
+  max-width: 80%; /* Adjust size to fit within the square */
+  max-height: 80%;
+  object-fit: contain;
+}
