@@ -1,11 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Book Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <header class="bg-primary text-light py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="h4">Book Profile</h1>
+            <a href="index.html" class="btn btn-light btn-sm">Back to Store</a>
+        </div>
+    </header>
+
+    <main class="container my-4">
+        <div class="row">
+            <!-- Book Image -->
+            <div class="col-md-4">
+                <div class="book-profile-img">
+                    <img src="pic/luckybook.jpg" alt="Book Cover" class="img-fluid rounded shadow">
+                </div>
+            </div>
+
+            <!-- Book Details -->
+            <div class="col-md-8">
+                <h2>โชคดีที่มึงได้อ่าน</h2>
+                <p class="text-muted">by <strong>John Doe</strong></p>
+                <p class="text-primary fs-5">Price: <strong>249 บาท</strong></p>
+
+                <h5>About the Book</h5>
+                <p>
+                    This book explores the journey of life and provides profound insights into personal growth,
+                    success, and happiness. Perfect for readers seeking inspiration and motivation.
+                </p>
+
+                <h5>Details</h5>
+                <ul>
+                    <li>Language: Thai</li>
+                    <li>Pages: 350</li>
+                    <li>Published: January 2023</li>
+                    <li>Publisher: ABC Publications</li>
+                </ul>
+
+                <!-- Buttons -->
+                <div class="mt-4">
+                    <button class="btn btn-primary me-2">Add to Cart</button>
+                    <button class="btn btn-outline-secondary">Add to Wishlist</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="row mt-5">
+            <div class="col">
+                <h3>Reviews</h3>
+                <div class="review my-3">
+                    <p><strong>Jane Smith</strong>: "A life-changing read! Highly recommended."</p>
+                </div>
+                <div class="review my-3">
+                    <p><strong>Mark Lee</strong>: "The best self-help book I’ve read this year."</p>
+                </div>
+
+                <!-- Add Your Review -->
+                <h5 class="mt-4">Add Your Review</h5>
+                <form>
+                    <div class="mb-3">
+                        <label for="review" class="form-label">Your Review</label>
+                        <textarea class="form-control" id="review" rows="3" placeholder="Write your review..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-light py-3 text-center mt-4">
+        <p>&copy; 2024 Purely Bookstore</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
