@@ -157,6 +157,34 @@ body {
   margin-top: 10px;
 }
 
+<<<<<<< HEAD
+=======
+
+
+.book-square {
+  width: 1000px;
+  /* Adjust size as needed */
+  height: 500px;
+  /* Makes it a square */
+  background-color: #f0f0f0;
+  /* Light gray background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  /* Optional: rounded corners */
+  position: relative;
+  /* For absolute positioning inside */
+}
+
+.book-image {
+  max-width: 80%;
+  /* Adjust size to fit within the square */
+  max-height: 80%;
+  object-fit: contain;
+}
+
+>>>>>>> ab6b7a5311fbbe3d0fc1af595d391c10d3f89e9d
 main .container {
   max-width: 1200px;
   /* Restrict the maximum width of the box */
@@ -170,3 +198,156 @@ body {
   background-size: cover;
   font-family: 'Poppins', sans-serif;
 }
+<<<<<<< HEAD
+=======
+
+/* Full-page wrapper for consistent alignment and styling */
+#cart-page-wrapper {
+  min-height: calc(100vh - 150px);
+  /* Ensures it fills the viewport minus header/footer */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  /* Light background */
+  padding: 40px;
+}
+
+/* Main container holding the cart table and bottom section */
+#cart-container-wrapper {
+  background-color: #ffffff;
+  /* White background */
+  padding: 20px;
+  /* Adds padding inside the box */
+  border-radius: 8px;
+  /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
+  margin: 20px 0;
+  /* Adds spacing around the container */
+  max-width: 1200px;
+  /* Restrict width */
+  width: 100%;
+}
+
+/* Cart table styles */
+#cart-container {
+  background-color: #ffffff;
+  /* White background */
+  overflow-x: auto;
+  /* Handles overflow for smaller screens */
+  padding: 0px;
+  /* No extra padding */
+  border-radius: 8px;
+  /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
+}
+
+#cart-container table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+  /* Fixed column widths */
+  white-space: nowrap;
+}
+
+#cart-container table thead {
+  font-weight: 700;
+}
+
+#cart-container table thead td {
+  background: #007bff;
+  /* Blue header */
+  color: #ececec;
+  /* Light text color */
+  border: none;
+  padding: 6px 0;
+}
+
+#cart-container table td {
+  border: 1px solid black;
+  text-align: center;
+}
+
+#cart-container table td:nth-child(1) {
+  width: 100px;
+}
+
+#cart-container table td:nth-child(2),
+#cart-container table td:nth-child(3) {
+  width: 200px;
+}
+
+#cart-container table td:nth-child(4),
+#cart-container table td:nth-child(5),
+#cart-container table td:nth-child(6) {
+  width: 170px;
+}
+
+#cart-container table td img {
+  max-width: 100%;
+  /* Ensures the image resizes properly */
+  height: auto;
+  /* Maintains aspect ratio */
+  object-fit: contain;
+  /* Ensures no cropping */
+  border-radius: 4px;
+  /* Rounded corners */
+  display: block;
+  margin: 0 auto;
+  /* Centers image in the cell */
+}
+
+/* Coupon and Total sections */
+#cart-bottom .coupon>div,
+#cart-bottom .total>div {
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+#cart-bottom .coupon h5,
+#cart-bottom .total h5 {
+  background: #007bff;
+  /* Blue title */
+  color: #ececec;
+  /* Light text */
+  border: none;
+  padding: 10px 12px;
+  font-weight: 700;
+  border-radius: 8px;
+}
+
+#cart-bottom .coupon p,
+#cart-bottom .coupon input {
+  padding: 0 12px;
+}
+
+#cart-bottom .coupon input {
+  height: 44px;
+  margin: 0 0 20px 12px;
+}
+
+#cart-bottom .total div>div {
+  padding: 0 12px;
+}
+
+#cart-bottom .total h6 {
+  color: #2a2a2a;
+}
+
+.second-hr {
+  background: black;
+  width: 100%;
+  height: 1px;
+}
+
+#cart-bottom .total div>button {
+  margin: 0 12px 20px 0;
+  display: flex;
+  justify-content: flex-end;
+}
+>>>>>>> ab6b7a5311fbbe3d0fc1af595d391c10d3f89e9d
