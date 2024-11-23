@@ -10,15 +10,61 @@
 </head>
 
 <body>
-    <header class="bg-primary text-white py-3">
-        <div class="container">
-            <h1 class="mb-0">Order History</h1>
+    <header class="site-header">
+        <div class="container-fluid p-0">
+            <nav class="navbar navbar-expand-lg" style="background-color: #074bb1;" data-bs-theme="dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#" style="font-family: 'Lobster', cursive; font-size: 1.8rem;">Purely</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <div class="d-flex align-items-center me-auto">
+                            <ul class="navbar-nav">
+                                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">Category</a>
+                                    <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+                                        <li><a class="dropdown-item" href="#">Fiction</a></li>
+                                        <li><a class="dropdown-item" href="#">Non-Fiction</a></li>
+                                        <li><a class="dropdown-item" href="#">Academic</a></li>
+                                        <li><a class="dropdown-item" href="#">Comics & Graphic Novels</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="topsell.html">Top Selling</a></li>
+                            </ul>
+                            <form class="d-flex ms-3" role="search">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-light" type="submit">Search</button>
+                            </form>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="dropdown me-3">
+                                <a class="nav-link dropdown-toggle text-light" href="#" id="usernameDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">Username</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="usernameDropdown">
+                                    <li><a class="dropdown-item" href="account.html">Profile</a></li>
+                                    <li><a class="dropdown-item" href="history.html">Order History</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                                </ul>
+                            </div>
+                            <div class="profile-pic">
+                                <img src="https://via.placeholder.com/40" alt="Profile Picture" class="rounded-circle"
+                                    width="40" height="40">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
         </div>
     </header>
 
     <main class="container my-5">
-        <h2 class="mb-4">Your Past Orders</h2>
-        <div class="table-responsive">
+        <h2 class="mb-4">Your Order History</h2>
+        <div class="table-responsive-sm">
             <table class="table table-striped table-hover">
                 <thead class="table-primary">
                     <tr>
@@ -32,7 +78,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Sample order row -->
                     <tr>
                         <td>1001</td>
                         <td>โชคดีที่มึงได้อ่าน</td>
@@ -41,7 +86,7 @@
                         <td>2024-11-15</td>
                         <td><span class="badge bg-success">Delivered</span></td>
                         <td>
-                            <button class="btn btn-sm btn-info">Details</button>
+                            <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#orderDetailsModal">Details</button>
                         </td>
                     </tr>
                     <tr>
@@ -52,7 +97,7 @@
                         <td>2024-11-12</td>
                         <td><span class="badge bg-warning text-dark">Pending</span></td>
                         <td>
-                            <button class="btn btn-sm btn-info">Details</button>
+                            <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#orderDetailsModal">Details</button>
                         </td>
                     </tr>
                     <tr>
@@ -63,12 +108,22 @@
                         <td>2024-11-10</td>
                         <td><span class="badge bg-danger">Cancelled</span></td>
                         <td>
-                            <button class="btn btn-sm btn-info">Details</button>
+                            <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#orderDetailsModal">Details</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+
+        <nav aria-label="Order history pagination">
+            <ul class="pagination justify-content-center mt-3">
+                <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
     </main>
 
     <footer class="bg-dark text-white py-3 mt-auto">
@@ -77,10 +132,32 @@
         </div>
     </footer>
 
+    <!-- Modal for Order Details -->
+    <div class="modal fade" id="orderDetailsModal" tabindex="-1" aria-labelledby="orderDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderDetailsModalLabel">Order Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Replace with dynamic content if needed -->
+                    <p><strong>Order #:</strong> 1001</p>
+                    <p><strong>Book Name:</strong> โชคดีที่มึงได้อ่าน</p>
+                    <p><strong>Quantity:</strong> 1</p>
+                    <p><strong>Price:</strong> 249 บาท</p>
+                    <p><strong>Date:</strong> 2024-11-15</p>
+                    <p><strong>Status:</strong> Delivered</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
-    </script>
->>>>>>> Stashed changes
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 
 </html>
