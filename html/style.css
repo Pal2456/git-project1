@@ -157,8 +157,6 @@ body {
   margin-top: 10px;
 }
 
-<<<<<<< HEAD
-=======
 
 
 .book-square {
@@ -184,7 +182,7 @@ body {
   object-fit: contain;
 }
 
->>>>>>> ab6b7a5311fbbe3d0fc1af595d391c10d3f89e9d
+
 main .container {
   max-width: 1200px;
   /* Restrict the maximum width of the box */
@@ -198,8 +196,6 @@ body {
   background-size: cover;
   font-family: 'Poppins', sans-serif;
 }
-<<<<<<< HEAD
-=======
 
 /* Full-page wrapper for consistent alignment and styling */
 #cart-page-wrapper {
@@ -350,4 +346,3 @@ body {
   display: flex;
   justify-content: flex-end;
 }
->>>>>>> ab6b7a5311fbbe3d0fc1af595d391c10d3f89e9d
