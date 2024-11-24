@@ -3,28 +3,25 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
   },
   "dependencies": {
-    "body-parser": "^1.20.3",
     "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.4",
-    "dayjs": "^1.11.10",
+    "dayjs": "^1.11.13",
     "debug": "~2.6.9",
     "dotenv": "^16.4.5",
     "ejs": "~2.6.1",
-    "express": "^4.21.1",
-    "express-session": "^1.18.0",
-    "formidable": "^3.5.1",
+    "express": "~4.16.1",
+    "express-session": "^1.18.1",
+    "formidable": "^3.5.2",
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^9.0.2",
     "morgan": "~1.9.1",
     "mysql": "^2.18.1",
-    "mysql2": "^3.9.3",
-    "netlify-lambda": "^2.0.16",
-    "nodemon": "^3.1.0",
+    "nodemon": "^3.1.7",
     "numeral": "^2.0.6",
-    "pg": "^8.13.1",
-    "stripe": "^17.2.1"
+    "stripe": "^17.4.0"
   }
 }
