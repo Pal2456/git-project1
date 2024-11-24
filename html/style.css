@@ -192,7 +192,7 @@ main .container {
 }
 
 body {
-  background: url('pic/epic.jpg') no-repeat center center fixed;
+  background: url('pic/Design/epic.jpg') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Poppins', sans-serif;
 }
