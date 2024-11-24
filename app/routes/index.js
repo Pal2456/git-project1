@@ -4,7 +4,7 @@ let conn = require("./connect");
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express', admin: req.admin }); // Pass admin to template
+  res.render('login', { title: 'Express', admin: req.admin }); // Pass admin to template
 });
 
 /* Simulate Login Route */
