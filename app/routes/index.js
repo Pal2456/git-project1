@@ -95,10 +95,10 @@ router.use((req, res, next) => {
       "/check-username",
     ].some((route) => req.path.startsWith(route))
   ) {
-    return next(); 
+    return next();
   }
   if (!req.session.token) {
-    return res.redirect("/login"); 
+    return res.redirect("/login");
   }
   res.locals.user = {
     id: req.session.userid,
@@ -129,7 +129,7 @@ router.get('/check-username', (req, res) => {
   const sql = "SELECT * FROM tb_user WHERE usr = ?";
   conn.query(sql, [username], (err, result) => {
     if (err) throw err;
-    
+
     if (result.length > 0) {
 
       res.json({ available: false });
@@ -138,6 +138,7 @@ router.get('/check-username', (req, res) => {
     }
   });
 });
+
 
 router.get("/home", async (req, res) => {
   try {
@@ -155,7 +156,7 @@ router.get("/home", async (req, res) => {
       params.push("%" + req.query.search + "%");
     }
     if (req.query.groupBookId) { // ถ้า groupBookId มีค่า ให้เพิ่มเงื่อนไขในการค้นหา
-      if (whereClause) whereClause += " AND "; 
+      if (whereClause) whereClause += " AND ";
       if (req.query.groupBookId === "All") { // ถ้า groupBookId เป็น "All" ให้เพิ่มเงื่อนไขที่ไม่มีเงื่อนไข
         whereClause += "1";
       } else { // ถ้าไม่ใช่ "All" ให้เพิ่มเงื่อนไขในการค้นหา
@@ -169,7 +170,7 @@ router.get("/home", async (req, res) => {
     // โดยผลลัพลำดับคร่าวๆ จะเป็นดังนี้
     // SELECT COUNT(*) AS total FROM tb_book WHERE book_name LIKE(?) AND group_book_id = ?
     // SELECT COUNT(*) AS total FROM tb_book WHERE book_name LIKE(?) AND 1
-    
+
 
     let [countResult] = await conn.query(sql, params); // นับจำนวนทั้งหมดของหนังสือ
     let totalBooks = countResult[0].total; // จำนวนหนังสือทั้งหมด
@@ -178,7 +179,7 @@ router.get("/home", async (req, res) => {
     // ดึงข้อมูลหนังสือทั้งหมดที่ตรงกับเงื่อนไขและจำนวนหนังสือที่ต้องการแสดง
     // SELECT * FROM tb_book WHERE book_name LIKE(?) AND group_book_id = ? ORDER BY id DESC LIMIT ? OFFSET ?
     // SELECT * FROM tb_book WHERE book_name LIKE(?) AND 1 ORDER BY id DESC LIMIT ? OFFSET ?
-  
+
     sql = "SELECT * FROM tb_book";
     if (whereClause) {
       sql += " WHERE " + whereClause;
@@ -285,7 +286,7 @@ router.post("/register", (req, res) => {
     req.body["phone"],
     req.body["citizencard"],
   ];
- 
+
   conn.query(checkUsrSql, checkParam, (err, ExistResult) => {
     if (err) throw err;
     //ถ้ามีข้อมูลแสดงว่าซ้ำ
@@ -382,9 +383,9 @@ router.post("/passwordReset/:token", (req, res) => {
 //isLogin เพื่อตรวจสอบว่าผู้ใช้เข้าสู่ระบบอยู่หรือไม่ และ fetchGroupBooks เพื่อดึงข้อมูลกลุ่มหนังสือจาก database
 
 router.get("/profile", (req, res) => {
-  console.log(res.locals.user); 
+  console.log(res.locals.user);
   res.render("profile", { user: res.locals.user });
-  
+
 });
 
 //isLogin เพื่อตรวจสอบว่าผู้ใช้เข้าสู่ระบบอยู่หรือไม่ และ fetchGroupBooks เพื่อดึงข้อมูลกลุ่มหนังสือจาก database
@@ -755,7 +756,7 @@ router.post("/editBook/:id", (req, res) => {
 
 //ลบหนังสือที่ต้องการลบโดยใช้ id ที่ระบุในพารามิเตอร์ของ URL
 router.get("/deleteBook/:id/:img", (req, res) => {
-    let newPath = path.join(__dirname, "../public/images/books/");
+  let newPath = path.join(__dirname, "../public/images/books/");
 
   newPath += req.params.img;
   //Path ไปยังไฟล์รูปภาพของหนังสือที่ต้องการลบ
@@ -1008,7 +1009,7 @@ router.get("/history", async (req, res) => {
 
   let [RHUserHistory] = await conn.query(sql, params);
   //ดึงขอมูลที่เป็นประวัติของ user BH= BorrowHistory RH = ReserveHistory , BHUserHistory RHUserHistorya เพื่อจะนำมารวมกันทีหลัง
- // console.log(BHUserHistory);
+  // console.log(BHUserHistory);
   //console.log(RHUserHistory);
   //รวมข้อมูลประวัติการยืมและการจองหนังสือทั้งหมดและแสดงผลหน้า"history" เพื่อให้ผู้ใช้ดูประวัติการยืมและการจองของตัวเองได้
   res.render("history", {
@@ -1125,7 +1126,7 @@ router.get("/deleteReserveHistory/:id", (req, res) => {
 
 router.post("/add-to-cart", (req, res) => {
   // add-to-cart เพิมหนังสือลงในตะกร้าสินค้า
-  
+
   const bookId = parseInt(req.body.bookId); // รับค่า bookId จาก form ที่ส่งมา
   const cart = req.session.cart || []; // ดึงข้อมูลตะกร้าสินค้าจาก session หรือสร้างตะกร้าใหม่ถ้าไม่มี
 
@@ -1163,7 +1164,7 @@ router.get("/cart", async (req, res) => {
 
     if (carts.length > 0) { // ถ้าตะกร้าสินค้ามีหนังสือ
       let bookIds = carts.map((item) => item.bookId); // ใช้ function map กำหนดค่า item เป็น parameter ในการวนลูปหา bookId ที่อยู่ในตะกร้าสินค้า และเก็บค่า bookId ที่ได้ไว้ใน bookIds
-      let sql = "SELECT * FROM tb_book WHERE id IN (?)"; 
+      let sql = "SELECT * FROM tb_book WHERE id IN (?)";
       let [results] = await conn.query(sql, [bookIds]);
       books = results;
 
@@ -1177,14 +1178,14 @@ router.get("/cart", async (req, res) => {
         if (cartItem) {
           book.quantity = cartItem.quantity;
           book.totalPrice = parseFloat(book.price * book.quantity);
-          totalPrice += book.totalPrice; 
+          totalPrice += book.totalPrice;
         }
       });
     }
 
     res.render("cart", {
-      cart: books, 
-      totalQuantity: req.session.totalQuantity, 
+      cart: books,
+      totalQuantity: req.session.totalQuantity,
       totalPrice: totalPrice,
     });
   } catch (error) {
@@ -1220,7 +1221,7 @@ router.post("/update-cart", (req, res) => {
 router.post("/remove-cart", (req, res) => {
   const bookId = parseInt(req.body.bookId); // รับค่า bookId จาก form ที่ส่งมา
   const cart = req.session.cart || []; // ดึงข้อมูลตะกร้าสินค้าจาก session หรือสร้างตะกร้าใหม่ถ้าไม่มี
-  let totalQuantity = 0; 
+  let totalQuantity = 0;
 
   // ใช้ function filter กำหนดให้ item เป็น parameter ในการวนลูปหา bookId ที่ตรงกับ bookId ที่ส่งมาจาก form ที่ต้องการลบ จากนั้นเก็บค่าที่ได้ไว้ใน cart
   // ก็จะเหลือหนังสือที่ไม่ตรงกับ bookId ที่ส่งมาจาก form ที่ต้องการลบ
@@ -1283,8 +1284,7 @@ router.post("/create-checkout-session", async (req, res) => {
       const book = books.find((b) => b.id === carts.bookId);
       if (!book || book.stock < carts.quantity) {
         stockErrors.push(
-          `Insufficient stock for "${book.book_name}". Only ${
-            book ? book.stock : 0
+          `Insufficient stock for "${book.book_name}". Only ${book ? book.stock : 0
           } left.`
         );
       }
@@ -1410,33 +1410,33 @@ router.post("/create-checkout-session", async (req, res) => {
 
 
 // ใช้ Stripe CLI สำหรับการทดสอบ Webhook 
-router.post("/webhook", bodyParser.raw({ type: "application/json" }),async (req, res) => {
-    const endpointSecret ="whsec_5b9383c1baabb5923e55a9740dc4949ab44b14f5a25da5f5038c5fe63fbb9e09"; 
-    const sig = req.headers["stripe-signature"]; 
-    let event;
+router.post("/webhook", bodyParser.raw({ type: "application/json" }), async (req, res) => {
+  const endpointSecret = "whsec_5b9383c1baabb5923e55a9740dc4949ab44b14f5a25da5f5038c5fe63fbb9e09";
+  const sig = req.headers["stripe-signature"];
+  let event;
 
-    try {
-      // ยืนยัน Webhook signature
-      event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
-    } catch (err) {
-      // ถ้าไม่สามารถยืนยัน Webhook signature ได้
-      console.error(`Webhook signature verification failed.`, err.message);
-      return res.status(400).send(`Webhook Error: ${err.message}`);
-    }
-
-    // ดำเนินการตาม event type
-    if (event.type === "checkout.session.completed") {
-      const session = event.data.object;
-      // ทำงานเมื่อชำระเงินสำเร็จ
-      console.log("Payment successful:", session);
-    } else if (event.type === "payment_intent.payment_failed") {
-      const paymentIntent = event.data.object;
-      // ทำงานเมื่อชำระเงินไม่สำเร็จ
-      console.log("Payment failed:", paymentIntent);
-
-    }
-    res.sendStatus(200);
+  try {
+    // ยืนยัน Webhook signature
+    event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
+  } catch (err) {
+    // ถ้าไม่สามารถยืนยัน Webhook signature ได้
+    console.error(`Webhook signature verification failed.`, err.message);
+    return res.status(400).send(`Webhook Error: ${err.message}`);
   }
+
+  // ดำเนินการตาม event type
+  if (event.type === "checkout.session.completed") {
+    const session = event.data.object;
+    // ทำงานเมื่อชำระเงินสำเร็จ
+    console.log("Payment successful:", session);
+  } else if (event.type === "payment_intent.payment_failed") {
+    const paymentIntent = event.data.object;
+    // ทำงานเมื่อชำระเงินไม่สำเร็จ
+    console.log("Payment failed:", paymentIntent);
+
+  }
+  res.sendStatus(200);
+}
 );
 
 
@@ -1450,14 +1450,14 @@ router.get("/success", async (req, res) => {
   //7. ลบข้อมูลในตะกร้าสินค้า
   //8. ลบข้อมูลใน session
   //9. ส่งข้อมูลไปยังหน้า success
-  
+
   try {
     const conn = require("./connect2");
     const sessionId = req.query.session_id; // รับค่า session_id จาก query string
     const cart = req.session.cart || []; // ดึงข้อมูลตะกร้าสินค้าจาก session หรือสร้างตะกร้าใหม่ถ้าไม่มี
-    
+
     // ใช้ function map กำหนดให้ item เป็น parameter ในการวนลูปหา bookId ที่อยู่ในตะกร้าสินค้า และเก็บค่า bookId ที่ได้ไว้ใน bookIds
-    const bookIds = cart.map((item) => item.bookId); 
+    const bookIds = cart.map((item) => item.bookId);
     const [books] = await conn.query("SELECT * FROM tb_book WHERE id IN (?)", [bookIds,]);
 
 
@@ -1466,18 +1466,18 @@ router.get("/success", async (req, res) => {
     // โดย acc จะมีค่า เช่น {1: 100} จากการวนลูปครั้งแรก และ {1: 100, 2: 200} จากการวนลูปครั้งที่สอง
 
     const bookPriceMap = books.reduce((acc, book) => {
-        acc[book.id] = parseFloat(book.price);
-        return acc;
-      }, {});
+      acc[book.id] = parseFloat(book.price);
+      return acc;
+    }, {});
 
     if (!sessionId) {
-        return res.redirect("/cancel");
+      return res.redirect("/cancel");
     }
 
     // ดึงข้อมูล session จาก Stripe
     const session = await stripe.checkout.sessions.retrieve(sessionId);
 
-    
+
     // ถ้า session.payment_status เป็น paid
     if (session.payment_status === "paid") {
       const couponCode = req.session.couponCode; // ดึงค่า couponCode จาก session
@@ -1511,7 +1511,7 @@ router.get("/success", async (req, res) => {
           "SELECT stock FROM tb_book WHERE id = ?",
           [bookId]
         );
-          // ถ้า bookResults มีค่า และ stock มีค่ามากกว่าหรือเท่ากับ quantity ให้ลบจำนวนหนังสือที่ซื้อออกจาก stock
+        // ถ้า bookResults มีค่า และ stock มีค่ามากกว่าหรือเท่ากับ quantity ให้ลบจำนวนหนังสือที่ซื้อออกจาก stock
         if (bookResults.length > 0 && bookResults[0].stock >= quantity) {
           await conn.query(
             "UPDATE tb_book SET stock = stock - ? WHERE id = ?",
@@ -1575,7 +1575,7 @@ router.get("/success", async (req, res) => {
                 }
               }
               // ถ้าเป็น discount ให้ลดจำนวนโปรโมชั่นที่เป็นประเภท discount ที่ใช้ไป 1
-            } else if (promotion.type === "discount") {    
+            } else if (promotion.type === "discount") {
               // เช็คก่อนว่าโปรโมชั่นมีค่า quantity มากกว่า 0 ถ้ามีให้ลดจำนวนโปรโมชั่นที่เป็นประเภท discount ที่ใช้ไป 1
               if (promotion.quantity > 0) {
                 await conn.query(
@@ -1676,20 +1676,20 @@ router.get("/orderhistory", async (req, res) => {
     );
     // ให้ day, month, year เป็น จาก query string ที่ส่งมา
     const { day, month, year } = req.query;
-    
+
 
     // query ข้อมูล order ของ user จาก tb_order และ tb_user โดยใช้ id จาก session
     let query =
-      "SELECT o.*, u.id AS user_id, u.name AS user_name "+
+      "SELECT o.*, u.id AS user_id, u.name AS user_name " +
       "FROM tb_order AS o " +
-      "LEFT JOIN tb_user AS u ON o.user_id = u.id "+
-      "WHERE o.user_id = ? " 
-    ;
+      "LEFT JOIN tb_user AS u ON o.user_id = u.id " +
+      "WHERE o.user_id = ? "
+      ;
 
     const conditions = [];
     const values = [req.session.userid];
 
-    
+
     //ให้ conditions เก็บค่า day, month, year ที่ส่งมาจาก query string และ values เก็บค่า day, month, year
     //เช่น day = 1, month = 1, year = 2022 จะได้
     //conditions = ["DAY(o.order_date) = ?", "MONTH(o.order_date) = ?", "YEAR(o.order_date) = ?"]
@@ -1702,7 +1702,7 @@ router.get("/orderhistory", async (req, res) => {
     ORDER BY o.order_date DESC
     และใน value ก็จะมีค่า [req.session.userid, 1, 1, 2022]
     */
-    
+
     if (day) {
       conditions.push("DAY(o.order_date) = ?");
       values.push(day);
@@ -1722,15 +1722,15 @@ router.get("/orderhistory", async (req, res) => {
     query += " ORDER BY o.order_date DESC";
 
     const [orders] = await conn.query(query, values);
-    
-       // ถ้า orders ไม่มีค่า
-        if (orders.length === 0) {
-          return res.render("orderhistory", {
-            orders: [],
-            query: req.query,
-            message: "No orders found for the selected date range.",
-          });
-        }
+
+    // ถ้า orders ไม่มีค่า
+    if (orders.length === 0) {
+      return res.render("orderhistory", {
+        orders: [],
+        query: req.query,
+        message: "No orders found for the selected date range.",
+      });
+    }
 
     // ให้ orderIds เก็บค่า order_id ที่อยู่ใน orders
     // จากนั้นให้ orderItems ดึงเอาข้อมูล query จาก book มาใช้ และ order_items มาใช้
@@ -1758,9 +1758,9 @@ router.get("/orderhistory", async (req, res) => {
         address: useraddress[0].address
       };
     });
-  
-    
-    res.render("orderhistory", { orders: orderMap, query: req.query  });
+
+
+    res.render("orderhistory", { orders: orderMap, query: req.query });
   } catch (error) {
     console.error("Error fetching order history:", error);
     res.status(500).send("An error occurred while fetching order history.");
@@ -1774,7 +1774,7 @@ router.get("/orderhistoryadmin", async (req, res) => {
     // ให้ day, month, year, user_id เป็น จาก query string ที่ส่งมา
     const { day, month, year, user_id } = req.query;
 
-    
+
     let query = `
       SELECT o.*, u.id AS user_id, u.name AS user_name 
       FROM tb_order AS o
@@ -1796,7 +1796,7 @@ router.get("/orderhistoryadmin", async (req, res) => {
     ORDER BY o.order_date DESC
     และใน value ก็จะมีค่า [1, 1, 2022, 1]
     */
-    
+
     if (day) {
       conditions.push("DAY(o.order_date) = ?");
       values.push(day);
@@ -1869,7 +1869,7 @@ router.get("/orderhistoryadmin", async (req, res) => {
       return {
         ...order,
         items: orderItems.filter((item) => item.order_id === order.id),
-        address: addressMap[order.user_id], 
+        address: addressMap[order.user_id],
       };
     });
 
@@ -1890,12 +1890,12 @@ router.get("/promotion", (req, res) => {
   let sql =
     "SELECT tb_promotion.* FROM tb_promotion " +
     "LEFT JOIN tb_book ON tb_book.id = tb_promotion.book_id " +
-    "ORDER BY tb_promotion.id DESC"; 
-  
+    "ORDER BY tb_promotion.id DESC";
+
   conn.query(sql, (err, result) => {
     if (err) throw err;
 
-    
+
     res.render("promotion", { promotions: result });
   });
 });
@@ -1923,7 +1923,7 @@ router.get("/editPromotion/:id", (req, res) => {
   let params = req.params.id; // รับ id ที่ส่งมาจาก URL
   conn.query(sql, params, (err, result) => {
     if (err) throw err;
-    
+
     //ส่งข้อมูลผู้ใช้ที่ดึงมาและข้อมูลกลุ่มหนังสือไปที่ "addUser" เพื่อให้ผู้ใช้ทำการแก้ไขข้อมูล
     res.render("addPromotion", { promotions: result[0] });
   });
@@ -1935,10 +1935,10 @@ router.post("/editPromotion/:id", (req, res) => {
   //แก้ไขข้อมูลโปรโมชั่นใน database โดยใช้ id ที่ระบุในพารามิเตอร์ของ URL
   let sql =
     "UPDATE tb_promotion SET ? WHERE id = ?";
-    
- let params = [req.body, req.params.id];
+
+  let params = [req.body, req.params.id];
   conn.query(sql, params, (err, result) => {
-   
+
     if (err) throw err;
     res.redirect("/promotion");
   });
